@@ -61,4 +61,28 @@
 
 ### Into to Scripting 
 --- 
+- unity used to support other languages like Javascript and boo 
+- most pro devs use C#
+- unitys implemantation of Javascript was not Javascript 
+    - called UnityScript and different from Javascript 
 
+- 2017 js was dropped and C# is the only supported language 
+
+- derive from __MonoBehaviour__ and can override several methods 
+    - __Update()__ occurs every frame 
+        - 60fps = 60 update calls 
+        - don't want heavy processing 
+    - __OnEnable()__ called when GameObj is enabled 
+        - also when inactive GameObj suddenly reactivates 
+        - you can deactivate GameObj when you dont need them until a later point 
+    - __Start()_ called once before __Update()__
+        - good place for init 
+    - __Destroy()__ called before the obj goes to the afterlife (R.I.P)
+    
+    ### Call cycle ↓
+    - A complete listing of events can be found at 
+    the MonoBehavior reference on Unity’s site:
+    - https://docs.unity3d.com/ScriptReference/MonoBehaviour.html
+    
+    ![alt text](image.png)
+  
