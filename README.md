@@ -34,4 +34,4 @@
     
 ### Intor to GameObjects -- Chapter 2 
 --- 
-- everything in the __hierarchy__ is a GameObjects
+- everything in the __hierarchy__ is a GameObj
