@@ -261,3 +261,32 @@ public class SoundManager : MonoBehaviour {
 - need to work out wheteher the player is interacting with an enemy, prop, or a collectable for example 
 - each GameObj may only have one tag 
 
+## __Week 12__ 
+### __SerializedField__ 
+---
+- allows you to expose a field in the inspector but not other scripts 
+
+### __Intro to Coroutines__ 
+---
+- a powerful tool in Unity that help manage time-based actions and maintain smooth gameplay without blocking the main thread
+- takes methods that -> __IEnumerator__ 
+- any var or parm will be correctly preserved between the yields 
+- by defalut, coroutine is resumed on the frame after it yields 
+    - can be delayed using __WaitForSeconds__ 
+### __Example Code↓__ 
+```
+void Start() {
+    StartCoroutine("deathTimer");
+}
+
+tells unity that when a missile is instantiated start a coroutine called deathTimer()
+
+IEnumerator deathTimer() {
+    yield return new WaitForSeconds(10);
+    Destroy(gameObj);
+}
+
+immediatley returns a 10 second wait 
+- once 10 sec is passed method will resume after yield 
+```
+
