@@ -216,3 +216,38 @@ void FixedUpdate() {
 
 ## Week 10 
 ### Playing Sound 
+---
+- unity contains a built in audio engine 
+- avoid formats sucha as mp3 because unity re-encodes compressed files to lower quality when it exports 
+- unity doesnt factor level geometry when playing sounds 
+    - Sounds will be heard through walls as if they are next to you 
+### __Audio Listener__  
+- to hear sounds it requires an __Audio Listener__ 
+__Audio Listener__ component is attached to the GameObj 
+### __Audio Source__ 
+- object that emits sound 
+    - includes background music and sound effects 
+### __Create a Sound Manager__ 
+``` 
+public class SoundManager : MonoBehaviour {
+
+    // instance will store a static reference to the single SoundManager 
+    public static SoundManager Instance = null; 
+    // refers to the audio source you added to the SoundManager 
+    private AudioSource soundEffectAudio; 
+}
+```
+
+### __Audio mixer__ 
+- built in audio mixer to allow you to make adjustments to various audio settings 
+
+### __The Unity Event System__ 
+--- 
+- allows you to notify an object or set when an event occurs
+- to notify the listeners use __Invoke()__ 
+
+### __The Particle System__ 
+--- 
+- particles are small bit of geometry created by the game engine 
+    - can create effects like fire, water, other chaotic systems 
+
