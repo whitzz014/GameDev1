@@ -289,4 +289,22 @@ IEnumerator deathTimer() {
 immediatley returns a 10 second wait 
 - once 10 sec is passed method will resume after yield 
 ```
+## __Week 13__ 
+### __Into to UI__
+--- 
+- Unity’s user interface system provides the tools necessary to create user interfaces in your games
+- Pre-Unity 4.0, the UI tools were a disaster
+- UI is a new feature in Unity 4.6
+
+### __Canvas__ 
+- root obj for all UI elements 
+### __Anchors__
+- unity uses __anchors__ 
+    - they look like arrows pointing at each other 
+- anchors can stretch a control 
+    - breaks into individual arrows to form a rectangle 
+#### Pivot 
+- the point on the image that position is applied to and what __anchors__ use to keep it in place 
+- also the rotation point 
+- having it on the top left corner is the most common 
 
