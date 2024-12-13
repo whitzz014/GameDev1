@@ -102,6 +102,8 @@ void Update() {
     pos.x += Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
     //3
     pos.z += Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime;
+    //4
+    transform.position = pos;
 }
 ```
   
@@ -110,4 +112,84 @@ void Update() {
 - 1st line gets the GameObj current pos and applys to var 
 - 2nd line gets the horizontal input and multiplies by moveSpeed and Time.deltaTime
 - 3rd line gets the vertical input and multiplies by moveSpeed and Time.deltaTime
-- obj only be on x and z since y if for ↑↓
+    - obj only be on x and z since y if for ↑↓
+- 4th line is to apply transform.position to Obj 
+
+### More on Update() and DeltaTime 
+![alt text](image-1.png)
+- movement varies depending on game run speed 
+
+## Week 8 
+
+### Colliders 
+--- 
+#### Mesh Collider 
+- creates collider boundaries from an actual mesh object  
+- great option for complicated models 
+- can be "expensive" - takes a lot of resources to maintain and determine collisions 
+- helps to have a very low-poly collider 
+- to create a low-poly collider, you take the og model and strip it of extraneous detaiul until you are down to the shape
+
+### Character Controllers 
+---
+- built in component that makes it easier to make characters in youe game move based on input 
+- to add a Character Controller, click add component, physics, choose character controller 
+``` 
+void Start(){
+    characterController = getComponent<CharacterController>();
+}
+
+movement is in the update()
+
+void Update() {
+    Vector3 moveDirection = new Vector3(Input.GetAxis("horizontal"), 0, Input.GetAxis("Vertical"));
+    characterController.SimpleMove(moveDirection * moveSpeed);
+}
+
+Simplemove() is a built in method that automatically  move the character in the given direction, not allowing the character to go through obastacles 
+```
+
+### FixedUpdate() 
+---
+- handles physics 
+- called at consistent intervals and no subject to fps 
+- anything that affects the __rigidbody__ should be in __FixedUpdate()__
+- by default, Unity calls it evey 0.02 seconds or 50 times per second   
+### __Example ↓__
+![alt text](image-2.png)
+
+### Raycasting 
+--- 
+- converts mouse from 2d to a 3d space 
+- shoots invisable lasers from a target to a destination and sends a notification when it hits a GameObject 
+- usually used to test if another player was struck by a projectile 
+
+
+
+### __Example ↓__ 
+The following example shows a raycast from a cube to a cone. Since the ray has a cone mask on it, it ignores the sphere and reports the hit on the cone 
+![alt text](image-3.png)
+- you can cast a ray from the camera to the mouse pointer 
+    - so the player turns where the mouse is 
+### __Example Code↓__
+```
+public LayerMask layerMask;
+private Vector3 currentLookTarget = Vector3.zero;
+```
+- __LayerMask__ indicates what layers the ray should hit 
+- __currentLookTarget__ is where the character wants to stare 
+    - set it to zero since you don't know where to look in the beginning 
+#### Next add to __FixedUpdate()__
+```
+void FixedUpdate() {
+    RaycastHit hit;
+    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+    Debug.DrawRay(ray.origin, ray.direction * 1000, color.green);
+}
+
+    - first create an empty RaycastHit
+        - if you get a hit it'll be populated with an object 
+    - second create the ray form the main camera to the mouse 
+    -The last line will draw a ray in the Scene view while you’re playing the game.
+    
+```
