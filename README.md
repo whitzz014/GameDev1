@@ -85,4 +85,29 @@
     - https://docs.unity3d.com/ScriptReference/MonoBehaviour.html
     
     ![alt text](image.png)
+
+### Accessing Input from Code 
+--- 
+- any __public__ is displayed in inspector of the Obj 
+#### Example 
+```
+public float moveSpeed = 50.0f;
+```
+#### Update() Example 
+```
+void Update() {
+    //1 
+    Vector3 pos = transform.position;
+    //2 
+    pos.x += Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
+    //3
+    pos.z += Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime;
+}
+```
   
+
+#### Explaining ↑
+- 1st line gets the GameObj current pos and applys to var 
+- 2nd line gets the horizontal input and multiplies by moveSpeed and Time.deltaTime
+- 3rd line gets the vertical input and multiplies by moveSpeed and Time.deltaTime
+- obj only be on x and z since y if for ↑↓
