@@ -251,3 +251,13 @@ public class SoundManager : MonoBehaviour {
 - particles are small bit of geometry created by the game engine 
     - can create effects like fire, water, other chaotic systems 
 
+## __Week 11__ 
+### __Tags__ 
+--- 
+- reference word which can assign to one or more GameObj
+- help identify GameObjs for scripting purposes 
+- dont need to manually drag and drop, so it saves time when using same code for multiple GameObjs 
+- useful triggers in collider control scripts 
+- need to work out wheteher the player is interacting with an enemy, prop, or a collectable for example 
+- each GameObj may only have one tag 
+
