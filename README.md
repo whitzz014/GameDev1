@@ -190,6 +190,29 @@ void FixedUpdate() {
     - first create an empty RaycastHit
         - if you get a hit it'll be populated with an object 
     - second create the ray form the main camera to the mouse 
-    -The last line will draw a ray in the Scene view while you’re playing the game.
-    
+    -The last line will draw a ray in the Scene view while you’re playing the game.
 ```
+## Week 9 
+### __Intro to Game Manager__ 
+---
+- unity refers to an obj that handles a specific sub system as a manager 
+    - an input manager is an obj that lets you adjust all the controls of your game 
+    - settings manager handles all the project settings
+    - Network Manager for managing the state of a networked game 
+- Game manager allow you to easily tweak your game settings while its being played 
+- unity doesnt have a "stock" game manager 
+### __Intro to Pathfinding__ 
+---
+#### __4 objs make a Navigation System__ 
+1. __NavMesh__ repersents walkable areas 
+2. __NavMesh Agent__ Actor or Agent using NavMesh 
+3. __Off-Mesh Link__ shortcut that cant be repersented on the map
+    - gap that characters can actually cross
+4. __NavMesh Obstacle__ obstacles that the agent should avoid 
+
+### __Intro to Mecanin__
+- animation system 
+- Mecanin is a powerful animation system that can be used to create complex animations
+
+## Week 10 
+### Playing Sound 
